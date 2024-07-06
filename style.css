@@ -1,0 +1,497 @@
+
+
+@font-face {
+    font-family: font1;
+    src: url(NeueHaasDisplayBlack.ttf);
+}
+
+@font-face {
+    font-family: font2;
+    src: url(NeueHaasDisplayMediu.ttf);
+}
+
+
+*{
+margin:0; 
+padding:0; 
+box-sizing:border-box; 
+}
+
+html,body{ 
+width:100%; 
+font-family: font1;
+height:100%; 
+}
+
+.d-flex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav{
+    width: 100vw;
+    height: 3.4vw;
+    display: flex;
+    position: fixed;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 999;
+    padding: 1.5vw 1vw;
+}
+
+.side-nav{
+    width: 72vw;
+    background: #fff;
+    justify-content: space-between;
+    font-size: 0.9vw;
+    padding: 0vw 0.8vw;
+}
+
+.main{
+    width: 100vw;
+    overflow-x: hidden;
+    background: #000;
+}
+
+.page1{
+    width: 100vw;
+    height: 100vh;
+    font-family:font1 ;
+    background: #000;
+    position: relative;
+    position: sticky;
+}
+
+.page1 video{
+    width: 98vw;
+    height: 87vh;
+    object-fit: cover;
+    background-attachment: fixed;
+}
+
+.page1 .overlay{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+    background: #00000004;
+}
+
+.page1 .overlay .center{
+    width: 98vw;
+    justify-content: space-between;
+}
+
+.page1 .overlay .center h1{
+    font-weight: 100 !important;
+}
+
+.main2{
+    padding: 0vw 1vw;
+    background:#0007;
+}
+.page2{
+    width: 110vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: font2;
+    padding: 0vw 0.9vw;
+    background: #000;
+    line-height: -3vw;
+}
+
+.page2-elem{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    gap: 2.5vw;
+}
+.page2-elem .text{
+    overflow: hidden;
+    height: 100%;
+    padding-bottom: 11.4vw;
+}
+.page2-elem .text h1{
+    font-size: 9vw;
+    font-weight: 100;
+    z-index: 999;
+}
+.page2-elem>.vde{
+    
+    height: 98%;
+    padding-top: 2.7vw;
+    overflow: hidden;
+}
+
+.page2-elem>.symbol{
+    overflow: hidden;
+}
+
+.page3{
+    width: 100vw;
+    height: 90vh;
+    padding: 0vw 1vw;
+}
+
+.page-side1{
+    width: 25%;
+    height: 100%;
+    display: flex;
+    font-family: font2;
+    color: #fff;
+    
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#one , #three{
+    align-items: end;
+    text-align: end;
+}
+
+#one .btm , #three .btm{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.page-side2{
+    width: 75%;
+    height: 100%;
+    position: relative;
+}
+
+.text1{
+    width: fit-content;
+    height: 1.2vw;
+    margin-top: 0.3vw;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+.text1 h5 span{
+    display: inline-block;
+    mix-blend-mode: difference;
+    font-size: 0.9vw;
+    transition: all ease 0.5s;
+}
+
+
+.line{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100% !important;
+    color: #fff;
+    background: #000;
+    opacity: 0;
+    height: 0vh;
+    font-family: font2;
+    transition: all cubic-bezier(0.19, 1, 0.22, 1) 0.5s;
+}
+
+.page-side2:hover .line{
+    height: fit-content;
+    opacity: 1;
+}
+
+.page4,.page8{
+    width: 100%;
+    height: 90vh;
+    margin-top: 12vw;
+}
+
+.page5 , .page7, .page9{
+    width: 100%;
+    height: 90vh;
+    margin-top: 12vw;
+}
+.page6{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: font2;
+    padding: 0vw 0.9vw;
+   
+    line-height: -3vw;
+    padding: 3vw;
+    margin-top: 10vw;
+}
+
+.footer{
+    width: 100%;
+    height: 100vh;
+
+    margin-top: -75vh;
+    display: flex;
+    padding: 1vw;
+    background: #000;
+    color: #fff;
+    position: relative;
+}
+.footer-side1{
+    width: 50%;
+    height: 100%;
+    font-family: font2;
+}
+
+.footer-svg{
+    width: 100%;
+    height: 34vh;
+}
+.footer-svg svg{
+    width: 30vh;
+    height: 30vh;
+}
+
+.footer-one{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9vw;
+}
+.footer-right{
+    width: 50%;
+    flex-direction: column;
+    font-size: 0.8vw;
+    align-items: start;
+    margin-top: 2vw;
+}
+.footer-right a:hover{
+    opacity: 0.9;
+    text-decoration: underline;
+}
+
+.project{
+    width: 100vw;
+    font-size: 1.5vw;
+    position: relative;
+    padding-left: 24.5vw;
+    margin-top: 1vw;
+    height: 0;
+    transition: all cubic-bezier(0.19, 1, 0.22, 1) 0.2s;
+    z-index: 11;
+}
+.project:hover{
+    mix-blend-mode: difference;
+    background: white;
+    color: #000;
+    height: 2vw;
+}
+
+.footer-side2{
+    width: 50%;
+    height: 100%;
+    color: #fff;
+    z-index: 9;
+}
+.footer-h1{
+    width: fit-content;
+    height: 37vh;
+    display: flex;
+    align-items: center;
+
+}
+.footer-side2 h1{
+    font-size: 19.5vw;
+    letter-spacing: -2.1vw;
+}
+
+.footer {
+    overflow: hidden; 
+    position: relative;
+}
+
+.move {
+    width: 100vw !important;
+    white-space: nowrap;
+    overflow: hidden;
+    position: absolute;
+    top: 95%;
+    left: 0%;
+    z-index: 7;
+    color: #403f3f;
+}
+
+.moving {
+    display: inline-block;
+    animation: marquee 15s linear infinite;
+    animation-delay: -10s;
+    animation-iteration-count: infinite;
+    animation-play-state: running;
+}
+
+@keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-100%); }
+}
+
+.moving h3 {
+    display: inline-block; 
+    margin: 0;
+    font-size: 1.4vw;
+}
+
+
+
+.page6{
+    width: 110vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: font2;
+    padding: 0vw 0.9vw;
+    background: #000;
+    line-height: -3vw;
+}
+
+.page6-elem{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    gap: 2.5vw;
+}
+.page6-elem .text{
+    overflow: hidden;
+    height: 100%;
+    padding-bottom: 11.4vw;
+}
+.page6-elem .text h1{
+    font-size: 9vw;
+    font-weight: 100;
+    z-index: 999;
+    letter-spacing: -0.2vw;
+}
+.page6-elem>.vde{
+    height: 96%;
+    padding-top: 2.7vw;
+    overflow: hidden;
+}
+
+.page6-elem>.symbol{
+    overflow: hidden;
+}
+
+ @media (max-width:600px) {
+
+    nav{
+        height: 4.5vh;
+    }
+    .side-nav{
+        height: 2vh;
+        width: 50vw;
+    }
+    .side-nav h2{
+        font-size: 1.7vw;
+        font-weight: 100;
+        font-family: font2;
+    }
+    .side-nav a{
+        display: none;
+    }
+ 
+    .main2{
+        min-height: 100vh;
+    }
+
+    .page1 .overlay .center{
+        flex-direction: column;
+    }
+    .page1 .overlay h1{
+        font-size: 6vw;
+    }
+    .page1 .overlay a{
+        display: none;
+    }
+    .page2{
+        height: 55vh;
+        padding: 0vw 2vw;
+    }
+    .page2-elem{
+        height: 14%;
+        display: flex;
+        align-items: center;
+    }
+    .page2-elem .text{
+        display: flex;
+        align-items: end;
+        padding-bottom: 0;
+        font-size: 9.8vw;
+    }
+    .page2-elem>.vde{
+        height: 65%;
+    }
+    .page2-elem .symbol{
+        display: flex;
+        align-items: center;
+        padding-bottom: 10vw;
+    }
+    .page3,.page5,.page7,.page9{
+      display: none;
+    }
+    .page4,.page8{
+        margin-top: -9vw;
+        display:flex;
+        flex-direction: column;
+    }
+    .page-side2{
+        width: 100%;
+    }
+    .page-side1{
+        width: 100%;
+    }
+    .page-side1 .text1{
+        display: none;
+    }
+    .page6{
+        height: 55vh;
+        margin-top: -33vh;
+    }
+    .page6-elem{
+        height: 14%;
+        display: flex;
+        align-items: center;
+    }
+    .page6-elem .text{
+        display: flex;
+        align-items: end;
+        padding-bottom: 0;
+        font-size: 9.8vw;
+    }
+    .page6-elem>.vde{
+        height: 65%;
+    }
+    .page8{
+        margin-bottom: -120vh;
+    }
+    .footer{
+        height: 50vh;
+        padding-bottom: 20vw;
+        align-items: start;
+        justify-content: start;
+        
+    }
+    .footer-svg svg{
+        display: none;
+    }
+    .footer-h1 h1{
+        position: absolute;
+        left: 0;
+        font-size: 35vw;
+    }
+
+    .footer-one{
+        font-size: 2vw;
+    }
+} 
