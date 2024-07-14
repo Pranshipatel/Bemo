@@ -1,45 +1,27 @@
-function loco (){
-  gsap.registerPlugin(ScrollTrigger);
-
-// Using Locomotive Scroll from Locomotive https://github.com/locomotivemtl/locomotive-scroll
-
-const locoScroll = new LocomotiveScroll({
-el: document.querySelector(".main"),
-smooth: true
-});
-// each time Locomotive Scroll updates, tell ScrollTrigger to update too (sync positioning)
-locoScroll.on("scroll", ScrollTrigger.update);
-
-// tell ScrollTrigger to use these proxy methods for the ".smooth-scroll" element since Locomotive Scroll is hijacking things
-ScrollTrigger.scrollerProxy(".main", {
-scrollTop(value) {
-  return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
-}, // we don't have to define a scrollLeft because we're only scrolling vertically.
-getBoundingClientRect() {
-  return {top: 0, left: 0, width: window.innerWidth, height: window.innerHeight};
-},
-// LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
-pinType: document.querySelector(".main").style.transform ? "transform" : "fixed"
-});
 
 
+function lenis(){
+  const lenis = new Lenis()
 
-
-// each time the window updates, we should refresh ScrollTrigger and then update LocomotiveScroll. 
-ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
-
-// after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
-ScrollTrigger.refresh();
-
+  lenis.on('scroll', (e) => {
+    console.log(e)
+  })
+  
+  function raf(time) {
+    lenis.raf(time)
+    requestAnimationFrame(raf)
+  }
+  
+  requestAnimationFrame(raf)
 }
-loco();
+lenis();
 
 function page1Animation(){
   
 var tl = gsap.timeline({
   scrollTrigger:{
     trigger:'.page1',
-    scroller:'.main',
+    // scroller:'.main',
     pin:true,
     // markers:true
   }
@@ -53,7 +35,7 @@ tl.to('.main2',{
 var tl2 = gsap.timeline({
   scrollTrigger:{
     trigger:'.page2',
-    scroller:'.main',
+    // scroller:'.main',
     start:"top 89%",
     end:"top 20%",
     scrub:true
@@ -67,11 +49,39 @@ tl2.to(".page1 .overlay",{
 
 page1Animation();
 
+
+function updateTime() {
+  const now = new Date();
+
+  let hours = now.getHours();
+  let minutes = now.getMinutes();
+  let seconds = now.getSeconds();
+
+  const amPm = hours >= 12 ? 'PM' : 'AM';
+
+  hours = hours % 12;
+  hours = hours ? hours : 12;
+  
+  minutes = minutes.toString().padStart(2, '0');
+  seconds = seconds.toString().padStart(2, '0');
+
+  const timeString = `${hours}:${minutes}:${seconds} ${amPm}`;
+
+  document.querySelector('.timer').textContent = timeString;
+  document.querySelector('.timer2').textContent = timeString;
+}
+
+updateTime();
+
+setInterval(updateTime, 1000);
+
+
+
 function page2Animation(){
  var tl = gsap.timeline({
   scrollTrigger:{
     trigger:".page2",
-    scroller:".main",
+    // scroller:".main",
     // markers:true,
     start:"top 70%",
     end:"top -50%"
@@ -112,19 +122,19 @@ function videoAnimation(){
 
 
 var pageSide = document.querySelector(".page-side2");
-pageSide.addEventListener("mousemove",function(){
+pageSide.addEventListener("mouseenter",function(){
   var tl = gsap.timeline();
   tl.to(".text1 .h5-1 span",{
     y:"-90%",
     stagger:0.01,
     ease: "power1.inOut",
-    duration:0.2
+    duration:0.1
   },"a")
   tl.to(".text1 .h5-2 span",{
     y:"0%",
     stagger:0.01,
     ease: "power1.inOut",
-    duration:0.2
+    duration:0.1
   },"a")
   .to(".page-side1 h1 span",{
     opacity:0.5
@@ -138,13 +148,13 @@ pageSide.addEventListener("mouseleave",function(){
     y:"90%",
     stagger:0.01,
     ease: "power1.inOut",
-    duration:0.2
+    duration:0.1
   },"a")
   .to(".text1 .h5-1 span",{
     y:"0%",
     stagger:0.01,
     ease: "power1.inOut",
-    duration:0.2
+    duration:0.1
   },"a")
   .to(".page-side1 h1 span",{
     opacity:1,
@@ -167,10 +177,10 @@ function page4Animation(){
 
 
 var pageSide = document.querySelector(".page4 .page-side2");
-pageSide.addEventListener("mousemove",function(){
+pageSide.addEventListener("mouseenter",function(){
   var tl = gsap.timeline();
   tl.to(".text1 .h5-1 span",{
-    y:"-90%",
+    y:"-95%",
     stagger:0.01,
     ease: "power1.inOut",
     duration:0.2
@@ -435,7 +445,7 @@ function page6Animation(){
   var tl = gsap.timeline({
    scrollTrigger:{
      trigger:".page6",
-     scroller:".main",
+    //  scroller:".main",
      start:"top 70%",
      end:"top -50%"
    }
@@ -460,7 +470,7 @@ function footer(){
   display:"none",
   scrollTrigger:{
     trigger:".footer",
-    scroller:".main",
+    // scroller:".main",
     // markers:true,
     start:"40% 80%",
     end:"top 40%",
