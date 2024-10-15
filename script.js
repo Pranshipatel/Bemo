@@ -4,7 +4,6 @@ function lenis(){
   const lenis = new Lenis()
 
   lenis.on('scroll', (e) => {
-    console.log(e)
   })
   
   function raf(time) {
@@ -27,7 +26,7 @@ var tl = gsap.timeline({
   }
 })
 tl.to('.main2',{
-  y:-700,
+  y:-650,
   duration:1,
   delay:-2,
 },"a")
